@@ -1,0 +1,23 @@
+<style type="text/css">
+  body{ background-image:url("/assets/form_background.jpg"); background-repeat:no-repeat; background-position:center; background-size:fill; padding:10px;}
+</style>
+
+<div class="container">
+  <div class="login-form">
+    <div class="main-div">
+      <div class="panel">
+        <h2>Forgot your password?</h2>
+      </div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true,:class=>"form-control",:placeholder=>"Email" %>
+        </div>
+        <div class="forgot">
+          <%= render "devise/shared/links" %>
+        </div>
+        <%= f.submit "Send me reset password instructions",:class=>"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
